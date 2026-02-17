@@ -33,7 +33,7 @@ jobs:
 
       - name: Publish to ClawHub
         env:
-          CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
+          CLAWHUB_TOKEN: ${{ secrets.SKILL_REPO_UPDATE_TOKEN }}
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           
