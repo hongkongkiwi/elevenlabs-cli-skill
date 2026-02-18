@@ -37,17 +37,14 @@ jobs:
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           
-          # Update version in SKILL.md if we have a tag
-          if [[ "$VERSION" != "0.0.0" ]]; then
-            echo "Publishing version ${VERSION}"
-          fi
+          echo "Publishing version ${VERSION}"
           
           # Login with token
           clawhub login --token "$CLAWHUB_TOKEN" --no-browser
           
           # Publish the skill
           clawhub publish . \
-            --slug "hongkongkiwi/elevenlabs-cli" \
+            --slug "elevenlabs-cli" \
             --name "ElevenLabs CLI" \
             --version "${VERSION}" \
             --tags "latest,elevenlabs,tts,audio,voice,mcp,ai,cli" \
@@ -55,4 +52,4 @@ jobs:
 
       - name: Verify publication
         run: |
-          echo "Skill published to: https://clawhub.ai/hongkongkiwi/elevenlabs-cli"
+          echo "Skill published to: https://clawhub.ai/elevenlabs-cli"
